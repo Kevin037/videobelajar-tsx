@@ -1,0 +1,17 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/kevinsat/videobelajar.kevin-satria.my.id"
+PassengerBaseURI "/"
+PassengerNodejs "/home/kevinsat/nodevenv/videobelajar.kevin-satria.my.id/20/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+SetEnv NEXT_PUBLIC_DB_BASEURL https://videobelajar-api.kevin-satria.my.id
+SetEnv NEXT_PUBLIC_HOSTNAME videobelajar-api.kevin-satria.my.id
+SetEnv NEXT_PUBLIC_PORT 4200
+SetEnv NEXT_PUBLIC_PROJECT_ID videobelajar-react
+SetEnv NEXT_PUBLIC_PROTOCOL https
+SetEnv NODE_ENV production
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END

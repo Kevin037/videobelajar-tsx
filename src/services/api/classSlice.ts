@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getFacilities } from '../data';
+import axios from 'axios';
 import api from '../api';
 import { classCategoriesType, classDateItem, ClassState, ClassType, FacilityItem, GetClassesParams } from '../types';
 
@@ -24,9 +25,13 @@ export const getClasses = createAsyncThunk<
       return response.data.data;
     } catch (err: unknown) {
         let errorMessage = "Something went wrong";
-        if (typeof err === "object" && err !== null && "response" in err) {
-          const error = err as { response?: { data?: string }; message?: string };
-          errorMessage = error.response?.data ?? error.message ?? errorMessage;
+        if (axios.isAxiosError(err)) {
+        errorMessage = err.response?.data?.message 
+          ?? err.response?.data 
+          ?? err.message 
+          ?? errorMessage;
+        } else if (err instanceof Error) {
+          errorMessage = err.message;
         }
       return thunkAPI.rejectWithValue(errorMessage);
     }

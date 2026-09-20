@@ -8,7 +8,7 @@ const api = axios.create({
     'Content-Type': 'application/json',
     Accept: 'application/json',
   },
-  baseURL: "https://videobelajar-api.kevin-satria.my.id",
+  baseURL: baseUrl,
   // timeout: 10000,
   // mode: 'cors',
 });
